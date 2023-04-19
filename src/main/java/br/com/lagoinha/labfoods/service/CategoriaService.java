@@ -17,8 +17,11 @@ public class CategoriaService {
         return this.categoriaRepository.findAll();
 
     }
-    //listar categoria por id
     //salvar categoria
+    public Categoria salvarCategoria(Categoria categoria){
+        return this.categoriaRepository.save(categoria);
+    }
+    //listar categoria por id
     //atualizar categoria
     //deletar categoria
 

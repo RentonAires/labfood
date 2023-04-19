@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategoriaService {
@@ -22,6 +23,14 @@ public class CategoriaService {
         return this.categoriaRepository.save(categoria);
     }
     //listar categoria por id
+    public Categoria listarPorId(Long id){
+        Optional<Categoria> categoriaPesquisada = this.categoriaRepository.findById(id);
+        if (categoriaPesquisada.isPresent()){
+            return categoriaPesquisada.get();
+        }else {
+            return null;
+        }
+    }
     //atualizar categoria
     //deletar categoria
 

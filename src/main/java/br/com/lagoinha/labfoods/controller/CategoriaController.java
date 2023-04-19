@@ -12,10 +12,18 @@ import java.util.List;
 public class CategoriaController {
     @Autowired
     private CategoriaService categoriaService;
+
+    //listar categoria
     @GetMapping
     public List<Categoria> get(){
         return this.categoriaService.listarCategoria();
     }
+    //lista categoria por id
+    @GetMapping("/{id}")
+    public Categoria buscarPorId(@PathVariable Long id){
+        return this.categoriaService.listarPorId(id);
+    }
+    //salvar categoria
     @PostMapping
     public Categoria post(@RequestBody Categoria categoria){
         return this.categoriaService.salvarCategoria(categoria);

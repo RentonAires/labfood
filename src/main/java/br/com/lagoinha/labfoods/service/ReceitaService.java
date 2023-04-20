@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ReceitaService {
@@ -22,6 +23,15 @@ public class ReceitaService {
         return this.receitaRepository.save(receita);
     }
     //listar receita por id
+    public Receita listarReceitaPorId(Long id){
+        Optional<Receita> receitaPesquisada = this.receitaRepository.findById(id);
+        if (receitaPesquisada.isPresent()){
+            return receitaPesquisada.get();
+        }else {
+            return null;
+        }
+    }
+
     //editar receita
     //deletar receita
 

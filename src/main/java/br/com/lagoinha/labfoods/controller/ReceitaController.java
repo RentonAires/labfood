@@ -21,4 +21,8 @@ public class ReceitaController {
     public Receita post(@RequestBody Receita receita){
         return this.receitaService.salvarReceita(receita);
     }
+    @GetMapping("/{id}")
+    public Receita getReceitaPorId(@PathVariable Long id){
+        return this.receitaService.listarReceitaPorId(id);
+    }
 }

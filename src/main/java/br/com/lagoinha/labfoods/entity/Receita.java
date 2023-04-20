@@ -20,7 +20,7 @@ public class Receita {
 
     @Column(length = 250, nullable = false)
     private String preparo;
-
+    //relacionamento com a tabela categorio
     @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;

@@ -17,6 +17,10 @@ public class ReceitaService {
         return this.receitaRepository.findAll();
     }
     //salvar receita
+
+    public Receita salvarReceita(Receita receita){
+        return this.receitaRepository.save(receita);
+    }
     //listar receita por id
     //editar receita
     //deletar receita

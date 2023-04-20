@@ -32,7 +32,17 @@ public class ReceitaService {
         }
     }
 
-    //editar receita
+    //editar receita por id
+    public Receita atualizarReceita(Long id, Receita receitaAtualizada){
+        Receita receitaPesquisada = listarReceitaPorId(id);
+        if (receitaPesquisada != null){
+            receitaPesquisada.setNome(receitaAtualizada.getNome());
+            receitaPesquisada.setIngrediente(receitaAtualizada.getIngrediente());
+            receitaPesquisada.setPreparo(receitaAtualizada.getPreparo());
+            return this.receitaRepository.save(receitaPesquisada);
+        }
+        return null;
+    }
     //deletar receita
 
 

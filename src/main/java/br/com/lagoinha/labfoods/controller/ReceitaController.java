@@ -25,4 +25,8 @@ public class ReceitaController {
     public Receita getReceitaPorId(@PathVariable Long id){
         return this.receitaService.listarReceitaPorId(id);
     }
+    @PutMapping("/{id}")
+    public Receita put(@PathVariable Long id, @RequestBody Receita receita){
+        return this.receitaService.atualizarReceita(id, receita);
+    }
 }

@@ -45,6 +45,13 @@ public class ReceitaService {
     }
     //deletar receita
 
+    public void deletarReceitaPorId(Long id){
+        Receita receitaPesquisada = listarReceitaPorId(id);
+        if (receitaPesquisada != null){
+            this.receitaRepository.deleteById(id);
+        }
+    }
+
 
 
 }

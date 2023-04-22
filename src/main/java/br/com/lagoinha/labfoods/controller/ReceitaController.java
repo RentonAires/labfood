@@ -29,4 +29,10 @@ public class ReceitaController {
     public Receita put(@PathVariable Long id, @RequestBody Receita receita){
         return this.receitaService.atualizarReceita(id, receita);
     }
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id){
+        this.receitaService.deletarReceitaPorId(id);
+    }
+
+
 }

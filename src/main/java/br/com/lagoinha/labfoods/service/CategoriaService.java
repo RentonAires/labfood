@@ -16,7 +16,6 @@ public class CategoriaService {
     //listar categoria
     public List<Categoria> listarCategoria(){
         return this.categoriaRepository.findAll();
-
     }
     //salvar categoria
     public Categoria salvarCategoria(Categoria categoria){
@@ -32,6 +31,14 @@ public class CategoriaService {
         }
     }
     //atualizar categoria
+
     //deletar categoria
+    public void deletarCategoria(Long id){
+        Categoria categoriaPesquisada = listarPorId(id);
+        if (categoriaPesquisada != null){
+            this.categoriaRepository.deleteById(id);
+        }
+
+    }
 
 }

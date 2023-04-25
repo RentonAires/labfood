@@ -28,4 +28,8 @@ public class CategoriaController {
     public Categoria post(@RequestBody Categoria categoria){
         return this.categoriaService.salvarCategoria(categoria);
     }
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id){
+        this.categoriaService.deletarCategoria(id);
+    }
 }

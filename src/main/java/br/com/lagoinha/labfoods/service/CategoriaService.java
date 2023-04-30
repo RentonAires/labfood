@@ -17,8 +17,16 @@ public class CategoriaService {
     public List<Categoria> listarCategoria(){
         return this.categoriaRepository.findAll();
     }
+
     //salvar categoria
-    public Categoria salvarCategoria(Categoria categoria){
+    public Categoria salvarCategoria(Categoria categoria) throws Exception{
+
+        if(categoria.getNome() == null || categoria.getNome().isEmpty())
+            throw new Exception("O nome da categoria é Obrigatório! ");
+
+        if (categoria.getDescricao() == null || categoria.getDescricao().isEmpty())
+            throw new Exception("campo de de descrição e obrigatório");
+
         return this.categoriaRepository.save(categoria);
     }
     //listar categoria por id

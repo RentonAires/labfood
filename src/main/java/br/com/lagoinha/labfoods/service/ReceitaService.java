@@ -17,11 +17,32 @@ public class ReceitaService {
     public List<Receita> listarReceita(){
         return this.receitaRepository.findAll();
     }
-    //salvar receita
 
-    public Receita salvarReceita(Receita receita){
+    //salvar receita
+    public Receita salvarReceita(Receita receita) throws Exception{
+
+        //verificando se nome da receita esta nulo ou vazio
+        if(receita.getNome() == null || receita.getNome().isEmpty()){
+            throw new Exception("Nome da receita é obrigatório");
+        }
+
+        //verificando se nome
+        if (receitaRepository.existsByNome(receita.getNome())){
+            throw new Exception("Receita já cadastrada!");
+        }
+
+        //verificando se ingrediente esta nulo ou vazio
+        if(receita.getIngrediente() == null || receita.getIngrediente().isEmpty()){
+            throw new Exception("O campo de intgrediente é obrigatório!");
+        }
+        if (!receitaRepository.existsById(receita.getId())){
+            throw new Exception("Receita nao encontrada! ");
+        }
+
+        //salvando receita
         return this.receitaRepository.save(receita);
     }
+
     //listar receita por id
     public Receita listarReceitaPorId(Long id){
         Optional<Receita> receitaPesquisada = this.receitaRepository.findById(id);
@@ -34,6 +55,7 @@ public class ReceitaService {
 
     //editar receita por id
     public Receita atualizarReceita(Long id, Receita receitaAtualizada){
+
         Receita receitaPesquisada = listarReceitaPorId(id);
         if (receitaPesquisada != null){
             receitaPesquisada.setNome(receitaAtualizada.getNome());

@@ -3,6 +3,7 @@ package br.com.lagoinha.labfoods.controller;
 import br.com.lagoinha.labfoods.entity.Receita;
 import br.com.lagoinha.labfoods.service.ReceitaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,8 +22,14 @@ public class ReceitaController {
 
     //salvar receita
     @PostMapping
-    public Receita post(@RequestBody Receita receita){
-        return this.receitaService.salvarReceita(receita);
+    public ResponseEntity<?> post(@RequestBody Receita receita){
+        try {
+            receita = this.receitaService.salvarReceita(receita);
+            return ResponseEntity.ok(receita);
+        }catch (Exception e ){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+
     }
 
     //listar por por id

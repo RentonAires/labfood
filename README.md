@@ -1,11 +1,14 @@
 # Projeto  - Módulo 2
-
+## LabFood
 ### Introdução
 
 Uma empresa especializada em desenvolvimento de aplicações deseja desenvolver
 uma aplicação para controle de receitas online **LabFood**.
 
 ### Descrição
+Aplicação construinda com a linguagem **java** utilizando o framework **Spring**
+com a seguintes dependências: **Spring Web, Spring Data JPA, Lombok, PostgreSQL Driver**
+
 A aplicação tera uma base de dados com duas tabelas “categoria” “receita”
 que recebera os seguintes dados
 
@@ -17,7 +20,7 @@ descrição:
 tabela: receita
 id:
 nome:
-descrição:
+ingrediente:
 preparo:
 
 com seguinte relacionamento uma categoria para varias receita
@@ -39,7 +42,7 @@ descerver o endpoint
 {
   "id": 1,
   "nome": "gluten",
-  "descricao": "esse receita nao gluten"
+  "descricao": "esse receita contém gluten"
 }
 ```
 **GET** `/receita`

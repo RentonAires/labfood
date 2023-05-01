@@ -13,6 +13,8 @@ com a seguintes dependências: **Spring Web, Spring Data JPA, Lombok, PostgreSQL
 A aplicação tera uma base de dados com duas tabelas “categoria” “receita”
 que recebera os seguintes dados
 
+colocar o diagrama aqui
+
 
 ### Tecnologias Utilizadas
 #### Back end
@@ -38,7 +40,7 @@ com seguinte relacionamento uma categoria para varias receita
 Este projeto trata-se do backend do sistema de gestão do
 **LabFood** da turma Lagoinha. Seguindo o seguinte modelo relacional
 
-colocar o diagrama aqui
+
 
 como rodar roda
 
